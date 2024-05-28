@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AMapNaviKit/AMapNaviKit.h>
 #import <React/RCTViewManager.h>
-#import "RNTAMapDriveView.m"
+#import "RNTAMapDriveView.h"
 #import "SpeechSynthesizer.h"
 
 

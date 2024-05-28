@@ -1,18 +1,12 @@
-
 {
-  "name": "react-native-amap-navi",
+  "name": "@cniot/react-native-amap-navi",
   "version": "0.2.0",
   "description": "amap navi for react-native",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "react-native",
-    "amap",
-    "navi",
-    "amap-navi"
-  ],
+  "keywords": [],
   "repository": {
     "type": "git",
     "url": "https://github.com/yz1311/react-native-amap-navi"
@@ -20,6 +14,6 @@
   "author": "yz1311",
   "license": "MIT",
   "peerDependencies": {
-    "react-native": "^0.51.2"
+    "react-native": "^0.60"
   }
 }
