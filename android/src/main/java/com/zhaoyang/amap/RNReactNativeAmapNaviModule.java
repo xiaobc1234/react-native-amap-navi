@@ -43,7 +43,7 @@ public class RNReactNativeAmapNaviModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod()
-  public void showRouteActivity(ReadableArray points,int navType, final Promise promise){
+  public void showRouteActivity(ReadableArray points,int navType, String requestId,final Promise promise){
     if(points==null || points.size() <1) {
       promise.reject("-1","POI数量不能少于1");
       return;
@@ -68,7 +68,7 @@ public class RNReactNativeAmapNaviModule extends ReactContextBaseJavaModule {
         wayList.add(poi);
       }
     }
-    AmapNaviPage.getInstance().showRouteActivity(this.reactContext, new AmapNaviParams(start, wayList, end, AmapNaviType.values()[navType]),new NaviInfoCallback(this.reactContext));
+    AmapNaviPage.getInstance().showRouteActivity(this.reactContext, new AmapNaviParams(start, wayList, end, AmapNaviType.values()[navType]),new NaviInfoCallback(this.reactContext, requestId));
     promise.resolve(true);
   }
 
@@ -88,8 +88,9 @@ public class RNReactNativeAmapNaviModule extends ReactContextBaseJavaModule {
 class NaviInfoCallback implements INaviInfoCallback {
   private final ReactApplicationContext reactContext;
 
-  public NaviInfoCallback(ReactApplicationContext reactContext) {
+  public NaviInfoCallback(ReactApplicationContext reactContext, String requestId) {
     this.reactContext = reactContext;
+    this.requestId = requestId;
   }
 
   private void sendEvent(ReactContext reactContext,
@@ -112,29 +113,38 @@ class NaviInfoCallback implements INaviInfoCallback {
 
   @Override
   public void onLocationChange(AMapNaviLocation aMapNaviLocation) {
-    sendEvent(this.reactContext,"onLocationChange",null);
+    WritableMap map = Arguments.createMap();
+    map.putBoolean("requestId",this.requestId);
+    sendEvent(this.reactContext,"onLocationChange",map);
   }
 
   @Override
   public void onArriveDestination(boolean b) {
     WritableMap map = Arguments.createMap();
     map.putBoolean("isArrive",b);
+    map.putBoolean("requestId",this.requestId);
     sendEvent(this.reactContext,"onArriveDestination",map);
   }
 
   @Override
   public void onStartNavi(int i) {
-    sendEvent(this.reactContext,"onStartNavi",null);
+    WritableMap map = Arguments.createMap();
+    map.putBoolean("requestId",this.requestId);
+    sendEvent(this.reactContext,"onStartNavi",map);
   }
 
   @Override
   public void onCalculateRouteSuccess(int[] ints) {
-    sendEvent(this.reactContext,"onCalculateRouteSuccess",null);
+    WritableMap map = Arguments.createMap();
+    map.putBoolean("requestId",this.requestId);
+    sendEvent(this.reactContext,"onCalculateRouteSuccess",map);
   }
 
   @Override
   public void onCalculateRouteFailure(int i) {
-    sendEvent(this.reactContext,"onCalculateRouteFailure",null);
+    WritableMap map = Arguments.createMap();
+    map.putBoolean("requestId",this.requestId);
+    sendEvent(this.reactContext,"onCalculateRouteFailure",map);
   }
 
   @Override
@@ -144,18 +154,23 @@ class NaviInfoCallback implements INaviInfoCallback {
 
   @Override
   public void onReCalculateRoute(int i) {
-    sendEvent(this.reactContext,"onReCalculateRoute",null);
+    WritableMap map = Arguments.createMap();
+    map.putBoolean("requestId",this.requestId);
+    sendEvent(this.reactContext,"onReCalculateRoute",map);
   }
 
   @Override
   public void onExitPage(int i) {
-    sendEvent(this.reactContext,"onExitPage",null);
+    WritableMap map = Arguments.createMap();
+    map.putBoolean("requestId",this.requestId);
+    sendEvent(this.reactContext,"onExitPage",map);
   }
 
   @Override
   public void onStrategyChanged(int i) {
     WritableMap map = Arguments.createMap();
     map.putInt("type",i);
+    map.putBoolean("requestId",this.requestId);
     sendEvent(this.reactContext,"onStrategyChanged",map);
   }
 
@@ -173,6 +188,7 @@ class NaviInfoCallback implements INaviInfoCallback {
   public void onArrivedWayPoint(int i) {
     WritableMap map = Arguments.createMap();
     map.putInt("index",i);
+    map.putBoolean("requestId",this.requestId);
     sendEvent(this.reactContext,"onArrivedWayPoint",map);
   }
 
@@ -180,6 +196,7 @@ class NaviInfoCallback implements INaviInfoCallback {
   public void onMapTypeChanged(int i) {
     WritableMap map = Arguments.createMap();
     map.putInt("type",i);
+    map.putBoolean("requestId",this.requestId);
     sendEvent(this.reactContext,"onMapTypeChanged",map);
   }
 
