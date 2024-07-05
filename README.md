@@ -85,7 +85,7 @@ AmapNavi.showRouteActivity([{
                         name: '北京站',
                         latitude: 0.0,
                         longitude: 0.0
-                      }],AmapNaviType.DRIVER);
+                      }],AmapNaviType.DRIVER, "requestId");
 ```
 
 #### 2.自定义view

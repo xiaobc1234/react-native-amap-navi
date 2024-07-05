@@ -1,6 +1,6 @@
 {
   "name": "@cniot/react-native-amap-navi",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "amap navi for react-native",
   "main": "index.js",
   "scripts": {

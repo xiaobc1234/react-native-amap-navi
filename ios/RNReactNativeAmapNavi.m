@@ -11,6 +11,7 @@ RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(showRouteActivity:(NSArray *)points
                   navType:(NSNumber * _Nonnull)navType
+                  requestId:(NSString * _Nonnull)requestId
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject) {
     if([points count] <1) {
