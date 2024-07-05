@@ -124,17 +124,17 @@ class NaviInfoCallback implements INaviInfoCallback {
 
   @Override
   public void onStartNavi(int i) {
-
+    sendEvent(this.reactContext,"onStartNavi",null);
   }
 
   @Override
   public void onCalculateRouteSuccess(int[] ints) {
-
+    sendEvent(this.reactContext,"onCalculateRouteSuccess",null);
   }
 
   @Override
   public void onCalculateRouteFailure(int i) {
-
+    sendEvent(this.reactContext,"onCalculateRouteFailure",null);
   }
 
   @Override
@@ -144,12 +144,12 @@ class NaviInfoCallback implements INaviInfoCallback {
 
   @Override
   public void onReCalculateRoute(int i) {
-
+    sendEvent(this.reactContext,"onReCalculateRoute",null);
   }
 
   @Override
   public void onExitPage(int i) {
-
+    sendEvent(this.reactContext,"onExitPage",null);
   }
 
   @Override
