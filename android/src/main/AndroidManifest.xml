@@ -13,6 +13,7 @@
     <application>
         <activity android:name="com.amap.api.navi.AmapRouteActivity"
             android:theme="@android:style/Theme.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden|screenSize" />
+            android:configChanges="orientation|keyboardHidden|screenSize" 
+            android:screenOrientation="landscape"/>
     </application>
 </manifest>
