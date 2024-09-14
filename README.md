@@ -1,7 +1,7 @@
 
-# @cniot/react-native-amap-navi-pad
+# @cniot/react-native-amap-navi
 
-相比 @cniot/react-native-amap-navi 锁定了android导航为横屏展示
+0.2.4-beta.pad 相比 @cniot/react-native-amap-navi 锁定了android导航为横屏展示
 
 # react-native-amap-navi
 [![npm version](http://img.shields.io/npm/v/react-native-amap-navi.svg?style=flat-square)](https://npmjs.org/package/react-native-amap-navi "View this project on npm")

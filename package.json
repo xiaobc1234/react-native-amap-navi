@@ -1,6 +1,6 @@
 {
-  "name": "@cniot/react-native-amap-navi-pad",
-  "version": "0.2.4-beta.1",
+  "name": "@cniot/react-native-amap-navi",
+  "version": "0.2.4-beta.pad",
   "description": "amap navi for react-native",
   "main": "index.js",
   "scripts": {
